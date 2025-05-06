@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cst8hevm42cfb"]
+
+[ext_resource type="Script" uid="uid://day8afliurivv" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://yuobkwugffwm" path="res://icon.svg" id="1_ig7tw"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_0xm2m")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(64, 64)
+texture = ExtResource("1_ig7tw")
+
+[node name="Window" type="Window" parent="."]
+borderless = true
+always_on_top = true
+
+[node name="Icon2" type="Sprite2D" parent="Window"]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(64, 63)
+texture = ExtResource("1_ig7tw")
