@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://fca4dmjpfsag"]
+
+[ext_resource type="Script" uid="uid://cp1kfhwfgsd8n" path="res://settings/setting.gd" id="1_djylm"]
+
+[node name="Setting" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_djylm")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="VSeparator" type="VSeparator" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4

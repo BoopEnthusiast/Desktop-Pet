@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://uowctfiijx34"]
+
+[ext_resource type="PackedScene" uid="uid://dxrqct33hi0fl" path="res://settings/settings_panel.tscn" id="1_g12ob"]
+[ext_resource type="Script" uid="uid://lwkqkqo5mue8" path="res://settings/settings_panel_game.gd" id="2_5lkxd"]
+[ext_resource type="PackedScene" uid="uid://fca4dmjpfsag" path="res://settings/setting.tscn" id="2_mrqvi"]
+
+[node name="SettingsPanelGame" instance=ExtResource("1_g12ob")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_5lkxd")
+
+[node name="Setting" parent="SettingsList" index="0" instance=ExtResource("2_mrqvi")]
+layout_mode = 2
+setting_title = "Walks around"
+
+[node name="WalksAround" type="CheckBox" parent="SettingsList/Setting" index="2"]
+layout_mode = 2
+size_flags_horizontal = 2

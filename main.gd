@@ -1,11 +1,12 @@
+class_name Main
 extends Node2D
 
 
 const SPEED = 400
 
 @onready var icon: Sprite2D = $Icon
-@onready var menu = $Menu
-@onready var open_menu = $OpenMenu
+@onready var menu: Menu = $Menu
+@onready var open_menu: Button = $OpenMenu
 
 
 func _ready() -> void:

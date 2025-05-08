@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://dxrqct33hi0fl"]
+[gd_scene load_steps=2 format=3 uid="uid://dxrqct33hi0fl"]
+
+[ext_resource type="Script" uid="uid://b3a4xoog6hvm4" path="res://settings/settings_panel.gd" id="1_pistf"]
 
 [node name="SettingsPanel" type="ScrollContainer"]
+script = ExtResource("1_pistf")
 
 [node name="SettingsList" type="VBoxContainer" parent="."]
 layout_mode = 2
