@@ -4,6 +4,8 @@ extends Node2D
 
 const SPEED = 400
 
+var walks_around: bool = false
+
 @onready var icon: Sprite2D = $Icon
 @onready var menu: Menu = $Menu
 @onready var open_menu: Button = $OpenMenu
@@ -11,6 +13,11 @@ const SPEED = 400
 
 func _ready() -> void:
 	get_window().size = icon.texture.get_size()
+	_load_settings.call_deferred()
+
+
+func _load_settings() -> void:
+	
 
 
 func _physics_process(delta: float) -> void:

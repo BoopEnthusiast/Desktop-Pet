@@ -1,17 +1,25 @@
 class_name SettingsPanelGame
-extends ScrollContainer
+extends SettingsPanel
 
 
-@export var config_file_name: String
+@export_group("Defaults")
+@export var walks_around: bool
 
-@onready var walks_around = $SettingsList/Setting/WalksAround
-
-var config_file: ConfigFile
+@onready var walks_around_node = $SettingsList/Setting/WalksAround
 
 
-func _ready():
-	var err = config_file.load("user://%s" % config_file_name)
+
+func make_new_file_with_defaults() -> void:
+	config_file = ConfigFile.new()
 	
-	# If it didn't load, go with the defaults
-	if err != OK:
-		return
+	# Walks around
+	config_file.set_value("Gameplay", "walks_around", walks_around)
+	walks_around_node.button_pressed = walks_around
+	
+	config_file.save("user://%s" % config_file_name)
+
+
+func load_config() -> void:
+	config_file.load("user://%s" % config_file_name)
+	
+	walks_around_node.button_pressed = config_file.get_value("Gameplay", "walks_around", walks_around)
