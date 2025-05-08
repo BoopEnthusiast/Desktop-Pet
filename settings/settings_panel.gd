@@ -23,12 +23,12 @@ func _ready() -> void:
 
 
 func make_new_file_with_defaults() -> void:
-	printerr("ERROR: Make new file with defaults was called on Settings Panel instead of overwritten function")
+	printerr("Make new file with defaults was called on Settings Panel instead of overwritten function")
 
 
 func load_config() -> void:
-	printerr("ERROR: Load config was called on Settings Panel instead of overwritten function")
+	printerr("Load config was called on Settings Panel instead of overwritten function")
 
 
 func set_global_config() -> void:
-	printerr("ERROR: Set global config was called on Settings Panel instead of overwritten function")
+	printerr("Set global config was called on Settings Panel instead of overwritten function")
