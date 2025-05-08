@@ -13,13 +13,17 @@ config_version=5
 config/name="Desktop Pet"
 run/main_scene="uid://cst8hevm42cfb"
 config/features=PackedStringArray("4.4", "Forward Plus")
+run/max_fps=30
 config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=1
+window/size/viewport_height=1
 window/size/borderless=true
 window/size/always_on_top=true
 window/size/transparent=true
+window/energy_saving/keep_screen_on=false
 window/subwindows/embed_subwindows=false
 window/per_pixel_transparency/allowed=true
 

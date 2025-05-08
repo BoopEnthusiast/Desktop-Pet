@@ -4,6 +4,8 @@ extends Node2D
 const SPEED = 400
 
 @onready var icon: Sprite2D = $Icon
+@onready var menu = $Menu
+@onready var open_menu = $OpenMenu
 
 
 func _ready() -> void:
@@ -36,3 +38,8 @@ func _physics_process(delta: float) -> void:
 	# Move the pet if it's not moving outside of the screen
 	if not outside_of_all_areas:
 		window.position += Vector2i(direction * SPEED * delta)
+
+
+func _on_open_menu_pressed():
+	menu.visible = not menu.visible
+	open_menu.text = "^" if open_menu.text == "V" else "V"

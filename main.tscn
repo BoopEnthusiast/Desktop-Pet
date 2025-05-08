@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cst8hevm42cfb"]
+[gd_scene load_steps=4 format=3 uid="uid://cst8hevm42cfb"]
 
 [ext_resource type="Script" uid="uid://day8afliurivv" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://yuobkwugffwm" path="res://icon.svg" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://q0oswanefg33" path="res://menu.tscn" id="3_h2yge"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0xm2m")
@@ -9,3 +10,13 @@ script = ExtResource("1_0xm2m")
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(64, 64)
 texture = ExtResource("1_ig7tw")
+
+[node name="OpenMenu" type="Button" parent="."]
+offset_right = 31.0
+offset_bottom = 31.0
+text = "V"
+
+[node name="Menu" parent="." instance=ExtResource("3_h2yge")]
+visible = false
+
+[connection signal="pressed" from="OpenMenu" to="." method="_on_open_menu_pressed"]

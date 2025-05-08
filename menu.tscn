@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://q0oswanefg33"]
+
+[ext_resource type="Script" uid="uid://bq7affpbxucrc" path="res://menu.gd" id="1_lti8b"]
+[ext_resource type="PackedScene" uid="uid://byhhlu5sajvl5" path="res://settings/settings.tscn" id="2_ouk20"]
+
+[sub_resource type="Gradient" id="Gradient_ouk20"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.674815, 0.674815, 0.674815, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mae5d"]
+gradient = SubResource("Gradient_ouk20")
+width = 1
+
+[sub_resource type="Gradient" id="Gradient_lti8b"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ouk20"]
+gradient = SubResource("Gradient_lti8b")
+width = 1
+
+[node name="Menu" type="Window"]
+auto_translate_mode = 1
+transparent_bg = true
+initial_position = 1
+size = Vector2i(400, 300)
+unresizable = true
+borderless = true
+always_on_top = true
+transparent = true
+popup_window = true
+script = ExtResource("1_lti8b")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSplitContainer" type="VSplitContainer" parent="PanelContainer"]
+layout_mode = 2
+split_offset = 30
+drag_area_margin_begin = 10
+drag_area_margin_end = 10
+
+[node name="TopBar" type="HBoxContainer" parent="PanelContainer/VSplitContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Settings" type="Button" parent="PanelContainer/VSplitContainer/TopBar"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+icon = SubResource("GradientTexture1D_mae5d")
+expand_icon = true
+
+[node name="Close" type="Button" parent="PanelContainer/VSplitContainer/TopBar"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+icon = SubResource("GradientTexture1D_ouk20")
+expand_icon = true
+
+[node name="Settings" parent="PanelContainer/VSplitContainer" instance=ExtResource("2_ouk20")]
+layout_mode = 2
+
+[connection signal="pressed" from="PanelContainer/VSplitContainer/TopBar/Close" to="." method="_on_close_pressed"]

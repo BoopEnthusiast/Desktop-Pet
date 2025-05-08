@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://byhhlu5sajvl5"]
+
+[ext_resource type="PackedScene" uid="uid://dxrqct33hi0fl" path="res://settings/settings_panel.tscn" id="1_iirne"]
+
+[node name="Settings" type="HSplitContainer"]
+size_flags_vertical = 3
+
+[node name="SettingsPanelList" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="SettingsPanelList"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Video"
+
+[node name="SettingsPanel" parent="." instance=ExtResource("1_iirne")]
+layout_mode = 2

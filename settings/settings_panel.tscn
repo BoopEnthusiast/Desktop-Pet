@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dxrqct33hi0fl"]
+
+[node name="SettingsPanel" type="ScrollContainer"]
+
+[node name="SettingsList" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
