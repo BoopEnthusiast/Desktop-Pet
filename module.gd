@@ -2,6 +2,10 @@ class_name Module
 extends Window
 
 
+func _init() -> void:
+	print("Initialized module")
+
+
 func _ready() -> void:
 	Config.updated_video_config.connect(_on_updated_video_config)
 

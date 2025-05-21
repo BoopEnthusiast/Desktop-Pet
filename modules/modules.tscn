@@ -11,30 +11,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_63utg")
 
-[node name="ScrollContainer2" type="ScrollContainer" parent="."]
+[node name="ModuleListScrollBox" type="ScrollContainer" parent="."]
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="ModulesList" type="VBoxContainer" parent="ScrollContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="AddModule" type="Button" parent="ScrollContainer2/ModulesList"]
-layout_mode = 2
-text = "+"
-
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="ModulesList" type="VBoxContainer" parent="ModuleListScrollBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-horizontal_scroll_mode = 0
+size_flags_vertical = 3
 
-[node name="ModuleSettings" type="VBoxContainer" parent="ScrollContainer"]
+[node name="AddModule" type="Button" parent="ModuleListScrollBox/ModulesList"]
 layout_mode = 2
+text = "+"
 
 [node name="AddModuleSelect" type="Window" parent="."]
 title = "Select Module"
 initial_position = 4
 size = Vector2i(300, 200)
+visible = false
 always_on_top = true
 script = ExtResource("2_3vfr5")
 
@@ -67,4 +61,4 @@ grow_horizontal = 2
 text = "Choose a module"
 horizontal_alignment = 1
 
-[connection signal="pressed" from="ScrollContainer2/ModulesList/AddModule" to="." method="_on_add_module_pressed"]
+[connection signal="pressed" from="ModuleListScrollBox/ModulesList/AddModule" to="." method="_on_add_module_pressed"]

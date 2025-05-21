@@ -19,8 +19,11 @@ var loaded_modules: Array[Module] = []
 
 ## Loads in a new module from the given path
 func load_module(path: String) -> void:
-	var new_module = load(path)
-	# TODO: Load in the module and do stuff properly
+	var new_loaded_module: PackedScene = load(path)
+	var new_module: Module = new_loaded_module.instantiate()
+	
+	add_child(new_module)
+	
 	loaded_module.emit()
 
 
