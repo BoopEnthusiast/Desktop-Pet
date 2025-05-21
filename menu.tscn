@@ -19,50 +19,39 @@ colors = PackedColorArray(1, 0, 0, 1)
 gradient = SubResource("Gradient_lti8b")
 width = 1
 
-[node name="Menu" type="Window"]
-auto_translate_mode = 1
-transparent_bg = true
-initial_position = 1
-size = Vector2i(400, 300)
-unresizable = true
-borderless = true
-always_on_top = true
-transparent = true
-popup_window = true
-extend_to_title = true
-script = ExtResource("1_lti8b")
-
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="Menu" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_lti8b")
 
-[node name="VSplitContainer" type="VSplitContainer" parent="PanelContainer"]
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
 layout_mode = 2
 split_offset = 30
 drag_area_margin_begin = 10
 drag_area_margin_end = 10
 
-[node name="TopBar" type="HBoxContainer" parent="PanelContainer/VSplitContainer"]
+[node name="TopBar" type="HBoxContainer" parent="VSplitContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Settings" type="Button" parent="PanelContainer/VSplitContainer/TopBar"]
+[node name="Settings" type="Button" parent="VSplitContainer/TopBar"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 icon = SubResource("GradientTexture1D_mae5d")
 expand_icon = true
 
-[node name="Close" type="Button" parent="PanelContainer/VSplitContainer/TopBar"]
+[node name="Close" type="Button" parent="VSplitContainer/TopBar"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 icon = SubResource("GradientTexture1D_ouk20")
 expand_icon = true
 
-[node name="Settings" parent="PanelContainer/VSplitContainer" instance=ExtResource("2_ouk20")]
+[node name="Settings" parent="VSplitContainer" instance=ExtResource("2_ouk20")]
 layout_mode = 2
 
-[connection signal="pressed" from="PanelContainer/VSplitContainer/TopBar/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="VSplitContainer/TopBar/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VSplitContainer/TopBar/Close" to="." method="_on_close_pressed"]

@@ -1,11 +1,17 @@
 class_name Menu
-extends Window
+extends PanelContainer
 
 
-func _ready() -> void:
-	pass#if OS.get_name() == "Linux":
-		#borderless = false
+@onready var settings: Settings = $VSplitContainer/Settings
+
+
+func _enter_tree() -> void:
+	Nodes.menu = self
 
 
 func _on_close_pressed():
 	visible = false
+
+
+func _on_settings_pressed() -> void:
+	settings.visible = not settings.visible

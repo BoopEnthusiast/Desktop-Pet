@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://byhhlu5sajvl5"]
+[gd_scene load_steps=4 format=3 uid="uid://byhhlu5sajvl5"]
 
 [ext_resource type="Script" uid="uid://cejiv0406ika4" path="res://settings/settings.gd" id="1_i854f"]
 [ext_resource type="PackedScene" uid="uid://uowctfiijx34" path="res://settings/settings_panel_game.tscn" id="2_prb04"]
+[ext_resource type="PackedScene" uid="uid://bj2mbsoer3oqn" path="res://settings/settings_panel_video.tscn" id="3_prb04"]
 
 [node name="Settings" type="HSplitContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 script = ExtResource("1_i854f")
 
@@ -16,7 +22,18 @@ layout_mode = 2
 size_flags_vertical = 0
 text = "Game"
 
+[node name="Video" type="Button" parent="SettingsPanelList"]
+layout_mode = 2
+text = "Video"
+
 [node name="SettingsPanelGame" parent="." instance=ExtResource("2_prb04")]
 layout_mode = 2
 
+[node name="SettingsPanelVideo" parent="." instance=ExtResource("3_prb04")]
+visible = false
+layout_mode = 2
+msaa = 0
+ssaa = false
+
 [connection signal="pressed" from="SettingsPanelList/Game" to="." method="_on_game_pressed"]
+[connection signal="pressed" from="SettingsPanelList/Video" to="." method="_on_video_pressed"]

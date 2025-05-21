@@ -1,2 +1,2 @@
 class_name TaskbarFlowers
-extends Window
+extends Module

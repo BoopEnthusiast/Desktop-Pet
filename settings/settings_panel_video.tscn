@@ -5,11 +5,19 @@
 [ext_resource type="PackedScene" uid="uid://fca4dmjpfsag" path="res://settings/setting.tscn" id="2_qyhq5"]
 
 [node name="SettingsPanelVideo" instance=ExtResource("1_fhj1w")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("2_7ins2")
+msaa = 1
+ssaa = false
+config_file_name = "video.cfg"
 
 [node name="Setting" parent="SettingsList" index="0" instance=ExtResource("2_qyhq5")]
 layout_mode = 2
-setting_title = "Anti-Aliasing"
+setting_title = "MSAA"
 
 [node name="MSAA" type="OptionButton" parent="SettingsList/Setting" index="2"]
 layout_mode = 2
@@ -24,3 +32,14 @@ popup/item_2/text = "4x"
 popup/item_2/id = 2
 popup/item_3/text = "8x"
 popup/item_3/id = 3
+
+[node name="Setting2" parent="SettingsList" index="1" instance=ExtResource("2_qyhq5")]
+layout_mode = 2
+setting_title = "SSAA"
+
+[node name="SSAA" type="CheckButton" parent="SettingsList/Setting2" index="2"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[connection signal="item_selected" from="SettingsList/Setting/MSAA" to="." method="_on_msaa_item_selected"]
+[connection signal="toggled" from="SettingsList/Setting2/SSAA" to="." method="_on_ssaa_toggled"]

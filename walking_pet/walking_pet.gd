@@ -1,5 +1,5 @@
 class_name WalkingPet
-extends Window
+extends Module
 
 
 const FRAME_0000 = preload("res://art/frame0000.png")
@@ -17,15 +17,13 @@ var is_being_dragged: bool = false
 var drag_offset: Vector2i = Vector2i.ZERO
 
 @onready var sprite: WalkingPetSprite = $Sprite
-@onready var menu: Menu = $"../Menu"
-@onready var open_menu: Button = $"../OpenMenu"
 @onready var walk_around_timer: Timer = $WalkAround
 
 
 func _ready() -> void:
+	super()
 	get_window().size = sprite.scale * FRAME_0000.get_size()
-	print(sprite.scale * FRAME_0000.get_size())
-	_load_settings.call_deferred()
+	Config.updated_game_config.connect(_load_settings)
 
 
 func _input(event: InputEvent) -> void:
@@ -90,11 +88,6 @@ func _load_settings() -> void:
 func _reset_position_to_center_of_primary_screen() -> void:
 	var primary_usable_rect = DisplayServer.screen_get_usable_rect(DisplayServer.SCREEN_PRIMARY)
 	position = primary_usable_rect.end - primary_usable_rect.size / 2
-
-
-func _on_open_menu_pressed() -> void:
-	menu.visible = not menu.visible
-	open_menu.text = "^" if open_menu.text == "V" else "V"
 
 
 func _on_walk_around_timeout() -> void:
