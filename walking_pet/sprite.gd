@@ -1,4 +1,4 @@
-class_name Sprite
+class_name WalkingPetSprite
 extends AnimatedSprite2D
 
 

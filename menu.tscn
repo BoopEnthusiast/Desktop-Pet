@@ -29,6 +29,7 @@ borderless = true
 always_on_top = true
 transparent = true
 popup_window = true
+extend_to_title = true
 script = ExtResource("1_lti8b")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]

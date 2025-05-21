@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=3 uid="uid://c8wqlv0rbwcpj"]
+
+[ext_resource type="Script" uid="uid://day8afliurivv" path="res://walking_pet/walking_pet.gd" id="1_t3smf"]
+[ext_resource type="Texture2D" uid="uid://b8cgt3onjuw0n" path="res://art/frame0005.png" id="2_8me4d"]
+[ext_resource type="Texture2D" uid="uid://cb5town7mxh24" path="res://art/frame0000.png" id="3_8n0nn"]
+[ext_resource type="Texture2D" uid="uid://cvgqa22q6l7l4" path="res://art/frame0001.png" id="4_68c06"]
+[ext_resource type="Texture2D" uid="uid://bupjk8ujqkbus" path="res://art/frame0002.png" id="5_slu8n"]
+[ext_resource type="Texture2D" uid="uid://08u58p551o8u" path="res://art/frame0003.png" id="6_r1qd8"]
+[ext_resource type="Texture2D" uid="uid://ccjoiw5r4o8ig" path="res://art/frame0004.png" id="7_xam1w"]
+[ext_resource type="Script" uid="uid://cqpockkjv122a" path="res://walking_pet/sprite.gd" id="8_ab5yp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1bvp3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8me4d")
+}],
+"loop": false,
+"name": &"blink",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8n0nn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8n0nn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_68c06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_slu8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_r1qd8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xam1w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_r1qd8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_slu8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_68c06")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[node name="WalkingPet" type="Window"]
+auto_translate_mode = 1
+transparent_bg = true
+handle_input_locally = false
+title = "Walking Pet"
+initial_position = 1
+size = Vector2i(85, 190)
+unresizable = true
+borderless = true
+always_on_top = true
+transparent = true
+script = ExtResource("1_t3smf")
+
+[node name="WalkAround" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(51, 102)
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_1bvp3")
+animation = &"idle"
+script = ExtResource("8_ab5yp")
+
+[node name="Blink" type="Timer" parent="Sprite"]
+wait_time = 5.0
+autostart = true
+
+[node name="Idle" type="Timer" parent="Sprite"]
+wait_time = 10.0
+autostart = true
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="timeout" from="WalkAround" to="." method="_on_walk_around_timeout"]
+[connection signal="animation_finished" from="Sprite" to="Sprite" method="_on_animation_finished"]
+[connection signal="timeout" from="Sprite/Blink" to="Sprite" method="_on_blink_timeout"]
+[connection signal="timeout" from="Sprite/Idle" to="Sprite" method="_on_idle_timeout"]
