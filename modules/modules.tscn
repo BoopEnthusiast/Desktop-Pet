@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cknlqjlvwsb"]
+[gd_scene load_steps=3 format=3 uid="uid://cknlqjlvwsb"]
 
 [ext_resource type="Script" uid="uid://dqrn5qo5fshqe" path="res://modules/modules.gd" id="1_63utg"]
+[ext_resource type="Script" uid="uid://bo3wx7gyi7y5p" path="res://modules/add_module_select.gd" id="2_3vfr5"]
 
 [node name="Modules" type="HSplitContainer"]
 anchors_preset = 15
@@ -26,3 +27,44 @@ text = "+"
 layout_mode = 2
 size_flags_horizontal = 3
 horizontal_scroll_mode = 0
+
+[node name="ModuleSettings" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="AddModuleSelect" type="Window" parent="."]
+title = "Select Module"
+initial_position = 4
+size = Vector2i(300, 200)
+always_on_top = true
+script = ExtResource("2_3vfr5")
+
+[node name="PanelContainer" type="PanelContainer" parent="AddModuleSelect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="AddModuleSelect/PanelContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="AddModuleSelect/PanelContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="Label" type="Label" parent="AddModuleSelect/PanelContainer/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Choose a module"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="ScrollContainer2/ModulesList/AddModule" to="." method="_on_add_module_pressed"]

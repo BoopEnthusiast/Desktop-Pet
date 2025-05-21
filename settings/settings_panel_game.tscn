@@ -4,10 +4,5 @@
 [ext_resource type="Script" uid="uid://lwkqkqo5mue8" path="res://settings/settings_panel_game.gd" id="2_5lkxd"]
 
 [node name="SettingsPanelGame" instance=ExtResource("1_g12ob")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 script = ExtResource("2_5lkxd")
 config_file_name = "game.cfg"

@@ -5,11 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://fca4dmjpfsag" path="res://settings/setting.tscn" id="2_qyhq5"]
 
 [node name="SettingsPanelVideo" instance=ExtResource("1_fhj1w")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 script = ExtResource("2_7ins2")
 msaa = 1
 ssaa = false

@@ -12,6 +12,7 @@ func _enter_tree() -> void:
 
 func _on_close_pressed():
 	visible = false
+	get_window().size = Vector2i.ZERO
 
 
 func _on_settings_pressed() -> void:
