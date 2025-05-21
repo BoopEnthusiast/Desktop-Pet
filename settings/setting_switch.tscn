@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://14pm2et1v5mu"]
+
+[ext_resource type="PackedScene" uid="uid://fca4dmjpfsag" path="res://settings/setting.tscn" id="1_qo8dt"]
+[ext_resource type="Script" uid="uid://brhk677hqfjqk" path="res://settings/setting_switch.gd" id="2_rep5c"]
+
+[node name="SettingSwitch" instance=ExtResource("1_qo8dt")]
+script = ExtResource("2_rep5c")

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ModuleSettings" load_steps=2 format=3 uid="uid://dnwb0yyd2mw8d"]
+
+[ext_resource type="Script" uid="uid://glu2p0pf603v" path="res://modules/module_setting.gd" id="1_p6s77"]
+
+[resource]
+script = ExtResource("1_p6s77")
+metadata/_custom_type_script = "uid://glu2p0pf603v"

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvhlpw6oyohtq"]
+
+[ext_resource type="Script" uid="uid://oyub0ndg8iy1" path="res://modules/module_settings_list.gd" id="1_i8rhv"]
+
+[node name="ModuleSettingsList" type="ScrollContainer"]
+horizontal_scroll_mode = 0
+script = ExtResource("1_i8rhv")
+
+[node name="SettingsList" type="VBoxContainer" parent="."]
+layout_mode = 2

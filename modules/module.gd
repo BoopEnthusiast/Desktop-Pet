@@ -2,8 +2,8 @@ class_name Module
 extends Window
 
 
-func _init() -> void:
-	print("Initialized module")
+@export var module_title: String = "New Module Title"
+@export var module_settings: Array[ModuleSetting]
 
 
 func _ready() -> void:

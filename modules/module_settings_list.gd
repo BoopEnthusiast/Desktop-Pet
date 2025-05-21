@@ -1,4 +1,4 @@
-class_name ModuleSettings
+class_name ModuleSettingsList
 extends ScrollContainer
 
 

@@ -2,7 +2,7 @@ class_name Modules
 extends HSplitContainer
 
 
-const MODULE_SETTINGS = preload("res://modules/module_settings.tscn")
+const MODULE_SETTINGS_LIST = preload("res://modules/module_settings_list.tscn")
 
 @onready var add_module_select: AddModuleSelectDialog = $AddModuleSelect
 
@@ -14,7 +14,7 @@ const MODULE_SETTINGS = preload("res://modules/module_settings.tscn")
 var modules: Array[Dictionary] = [
 	{ # Example, will be cleared when _reset_modules is inexorably called
 		"button": Button.new(),
-		"settings": ModuleSettings.new(),
+		"settings": ModuleSettingsList.new(),
 	}
 ]
 
@@ -56,6 +56,8 @@ func _setup_module_list() -> void:
 		var new_module_select_button: Button = Button.new()
 		new_module_select_button.pressed.connect(_on_module_setting_pressed.bind(new_module_select_button))
 		_add_to_modules(i, new_module_select_button)
+		modules_list.add_child(new_module_select_button)
+		modules_list.move_child(new_module_select_button, 0) # Move it to the top of the list
 		i += 1
 
 
@@ -63,18 +65,18 @@ func _setup_module_list() -> void:
 func _setup_module_settings_list() -> void:
 	var i = 0
 	for module: Module in ModuleManager.loaded_modules:
-		var new_module_settings: ModuleSettings = MODULE_SETTINGS.instantiate()
+		var new_module_settings: ModuleSettingsList = MODULE_SETTINGS_LIST.instantiate()
 		
-		
-		print("Created new module")
 		i += 1
 
 
 func _add_to_modules(index, button = null, settings = null) -> void:
-	#if modules.size() < index: # TODO: Test if this is needed
-		#modules.append({})
-	modules[index]["button"] = button
-	modules[index]["settings"] = settings
+	if modules.size() <= index:
+		modules.append({})
+	if button != null:
+		modules[index]["button"] = button
+	if settings != null:
+		modules[index]["settings"] = settings
 
 
 func _on_add_module_pressed() -> void:
