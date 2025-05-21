@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b3a4xoog6hvm4" path="res://settings/settings_panel.gd" id="1_pistf"]
 
 [node name="SettingsPanel" type="ScrollContainer"]
+horizontal_scroll_mode = 0
 script = ExtResource("1_pistf")
 
 [node name="SettingsList" type="VBoxContainer" parent="."]

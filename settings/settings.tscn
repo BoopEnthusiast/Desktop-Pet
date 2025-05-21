@@ -33,7 +33,6 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 msaa = 0
-ssaa = false
 
 [connection signal="pressed" from="SettingsPanelList/Game" to="." method="_on_game_pressed"]
 [connection signal="pressed" from="SettingsPanelList/Video" to="." method="_on_video_pressed"]

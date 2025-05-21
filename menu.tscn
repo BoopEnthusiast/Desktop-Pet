@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://q0oswanefg33"]
+[gd_scene load_steps=8 format=3 uid="uid://q0oswanefg33"]
 
 [ext_resource type="Script" uid="uid://bq7affpbxucrc" path="res://menu.gd" id="1_lti8b"]
 [ext_resource type="PackedScene" uid="uid://byhhlu5sajvl5" path="res://settings/settings.tscn" id="2_ouk20"]
+[ext_resource type="PackedScene" uid="uid://cknlqjlvwsb" path="res://modules/modules.tscn" id="3_mae5d"]
 
 [sub_resource type="Gradient" id="Gradient_ouk20"]
 offsets = PackedFloat32Array(0)
@@ -50,7 +51,11 @@ size_flags_horizontal = 10
 icon = SubResource("GradientTexture1D_ouk20")
 expand_icon = true
 
+[node name="Modules" parent="VSplitContainer" instance=ExtResource("3_mae5d")]
+layout_mode = 2
+
 [node name="Settings" parent="VSplitContainer" instance=ExtResource("2_ouk20")]
+visible = false
 layout_mode = 2
 
 [connection signal="pressed" from="VSplitContainer/TopBar/Settings" to="." method="_on_settings_pressed"]

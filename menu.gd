@@ -3,6 +3,7 @@ extends PanelContainer
 
 
 @onready var settings: Settings = $VSplitContainer/Settings
+@onready var modules: HSplitContainer = $VSplitContainer/Modules
 
 
 func _enter_tree() -> void:
@@ -14,4 +15,9 @@ func _on_close_pressed():
 
 
 func _on_settings_pressed() -> void:
-	settings.visible = not settings.visible
+	if settings.visible:
+		settings.visible = false
+		modules.visible = true
+	else:
+		settings.visible = true
+		modules.visible = false
