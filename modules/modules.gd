@@ -44,16 +44,23 @@ func _remove_modules_from_module_list() -> void:
 ## Removes the module settings from this node
 func _remove_module_settings() -> void:
 	for child: Node in get_children():
-		# Must be a ScrollContainer and not module_list_scroll_box
-		if child is ScrollContainer and not child == module_list_scroll_box:
+		if child is ModuleSettingsList:
 			remove_child(child)
+
+
+## Hides all the module settings from this node
+func _hide_module_settings() -> void:
+	for child: Node in get_children():
+		if child is ModuleSettingsList:
+			child.visible = false
 
 
 ## Creates a new button under modules_list for each module in ModuleManager.loaded_modules
 func _setup_module_list() -> void:
-	var i = 0
+	var i: int = 0
 	for module: Module in ModuleManager.loaded_modules:
 		var new_module_select_button: Button = Button.new()
+		new_module_select_button.text = module.module_title
 		new_module_select_button.pressed.connect(_on_module_setting_pressed.bind(new_module_select_button))
 		_add_to_modules(i, new_module_select_button)
 		modules_list.add_child(new_module_select_button)
@@ -63,10 +70,20 @@ func _setup_module_list() -> void:
 
 ## Creates a new ModuleSettings for each module in ModuleManager.loaded_modules, and sets up their settings
 func _setup_module_settings_list() -> void:
-	var i = 0
+	var i: int = 0
 	for module: Module in ModuleManager.loaded_modules:
 		var new_module_settings: ModuleSettingsList = MODULE_SETTINGS_LIST.instantiate()
-		
+		# Add it
+		add_child(new_module_settings)
+		_add_to_modules(i, null, new_module_settings)
+		# Add the settings
+		for module_setting: ModuleSetting in module.module_settings:
+			new_module_settings.add_setting(module_setting)
+		# Only show the first one
+		if i == 0:
+			new_module_settings.visible = true
+		else:
+			new_module_settings.visible = false
 		i += 1
 
 
@@ -84,4 +101,10 @@ func _on_add_module_pressed() -> void:
 
 
 func _on_module_setting_pressed(button_pressed: Button) -> void:
-	pass
+	_hide_module_settings()
+	# Get the module setting for the button pressed
+	var module_setting: ModuleSettingsList = modules[modules.find_custom(
+		func(val: Dictionary):
+			return true if val["button"] == button_pressed else false
+	)]["settings"]
+	module_setting.visible = true

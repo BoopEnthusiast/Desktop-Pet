@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dxrqct33hi0fl" path="res://settings/settings_panel.tscn" id="1_fhj1w"]
 [ext_resource type="Script" uid="uid://cbf0ghxc8gwdd" path="res://settings/settings_panel_video.gd" id="2_7ins2"]
-[ext_resource type="PackedScene" uid="uid://fca4dmjpfsag" path="res://settings/setting.tscn" id="2_qyhq5"]
+[ext_resource type="PackedScene" uid="uid://fca4dmjpfsag" path="res://settings/setting/setting_base.tscn" id="2_qyhq5"]
 
 [node name="SettingsPanelVideo" instance=ExtResource("1_fhj1w")]
 script = ExtResource("2_7ins2")

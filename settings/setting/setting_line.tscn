@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://gf8jhetpcx5"]
+
+[ext_resource type="PackedScene" uid="uid://fca4dmjpfsag" path="res://settings/setting/setting_base.tscn" id="1_x6so2"]
+[ext_resource type="Script" uid="uid://17n4t6so7urf" path="res://settings/setting/setting_line.gd" id="2_wjajb"]
+
+[node name="SettingLine" instance=ExtResource("1_x6so2")]
+script = ExtResource("2_wjajb")
+default_text = ""
+placeholder_text = ""
+
+[node name="LineEdit" type="LineEdit" parent="." index="2"]
+layout_mode = 2
+
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]

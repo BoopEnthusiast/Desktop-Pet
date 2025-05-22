@@ -27,6 +27,7 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	super(event)
 	if event.is_action_pressed("click") and is_mouse_inside:
 		is_being_dragged = true
 		drag_offset = -get_mouse_position()

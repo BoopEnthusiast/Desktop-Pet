@@ -12,7 +12,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
-		Nodes.menu.visible = true
+		Nodes.menu.show_self()
 
 
 func _on_updated_video_config() -> void:

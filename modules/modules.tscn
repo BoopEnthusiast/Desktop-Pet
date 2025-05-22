@@ -30,6 +30,7 @@ initial_position = 4
 size = Vector2i(300, 200)
 visible = false
 always_on_top = true
+popup_window = true
 script = ExtResource("2_3vfr5")
 
 [node name="PanelContainer" type="PanelContainer" parent="AddModuleSelect"]
@@ -62,3 +63,4 @@ text = "Choose a module"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="ModuleListScrollBox/ModulesList/AddModule" to="." method="_on_add_module_pressed"]
+[connection signal="close_requested" from="AddModuleSelect" to="AddModuleSelect" method="_on_close_requested"]

@@ -26,3 +26,7 @@ func _on_module_button_pressed(button_pressed: Button) -> void:
 	ModuleManager.load_module(module_path)
 	
 	visible = false
+
+
+func _on_close_requested() -> void:
+	visible = false

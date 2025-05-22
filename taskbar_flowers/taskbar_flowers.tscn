@@ -5,9 +5,9 @@
 [node name="TaskbarFlowers" type="Window"]
 auto_translate_mode = 1
 transparent_bg = true
-initial_position = 1
 unresizable = true
 borderless = true
 always_on_top = true
 transparent = true
 script = ExtResource("1_7j2ki")
+module_title = "Taskbar Flowers"

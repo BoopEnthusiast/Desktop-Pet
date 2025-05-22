@@ -1,13 +1,25 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8wqlv0rbwcpj"]
+[gd_scene load_steps=12 format=3 uid="uid://c8wqlv0rbwcpj"]
 
 [ext_resource type="Script" uid="uid://day8afliurivv" path="res://walking_pet/walking_pet.gd" id="1_t3smf"]
 [ext_resource type="Texture2D" uid="uid://b8cgt3onjuw0n" path="res://art/frame0005.png" id="2_8me4d"]
+[ext_resource type="Script" uid="uid://glu2p0pf603v" path="res://modules/module_setting.gd" id="2_8n0nn"]
 [ext_resource type="Texture2D" uid="uid://cb5town7mxh24" path="res://art/frame0000.png" id="3_8n0nn"]
 [ext_resource type="Texture2D" uid="uid://cvgqa22q6l7l4" path="res://art/frame0001.png" id="4_68c06"]
 [ext_resource type="Texture2D" uid="uid://bupjk8ujqkbus" path="res://art/frame0002.png" id="5_slu8n"]
 [ext_resource type="Texture2D" uid="uid://08u58p551o8u" path="res://art/frame0003.png" id="6_r1qd8"]
 [ext_resource type="Texture2D" uid="uid://ccjoiw5r4o8ig" path="res://art/frame0004.png" id="7_xam1w"]
 [ext_resource type="Script" uid="uid://cqpockkjv122a" path="res://walking_pet/sprite.gd" id="8_ab5yp"]
+
+[sub_resource type="Resource" id="Resource_68c06"]
+script = ExtResource("2_8n0nn")
+setting_name = "Can walk"
+setting_type = 1
+label_text = ""
+switch_value = true
+option_items = Array[String]([])
+line_text = ""
+line_placeholder_text = ""
+metadata/_custom_type_script = "uid://glu2p0pf603v"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1bvp3"]
 animations = [{
@@ -69,6 +81,8 @@ borderless = true
 always_on_top = true
 transparent = true
 script = ExtResource("1_t3smf")
+module_title = "Walking Pet"
+module_settings = Array[ExtResource("2_8n0nn")]([SubResource("Resource_68c06")])
 
 [node name="WalkAround" type="Timer" parent="."]
 wait_time = 10.0
