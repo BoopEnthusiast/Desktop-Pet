@@ -33,7 +33,6 @@ window/size/extend_to_title=true
 window/energy_saving/keep_screen_on=false
 window/subwindows/embed_subwindows=false
 window/per_pixel_transparency/allowed=true
-window/vsync/vsync_mode=0
 
 [input]
 
@@ -74,5 +73,7 @@ escape={
 
 [rendering]
 
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 anti_aliasing/quality/msaa_2d=1
 viewport/transparent_background=true

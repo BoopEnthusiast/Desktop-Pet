@@ -6,7 +6,6 @@
 auto_translate_mode = 1
 transparent_bg = true
 unresizable = true
-borderless = true
 always_on_top = true
 transparent = true
 script = ExtResource("1_7j2ki")

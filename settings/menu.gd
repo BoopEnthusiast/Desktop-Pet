@@ -22,7 +22,7 @@ func _input(event: InputEvent) -> void:
 		is_following_mouse = false
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_following_mouse:
 		get_window().position = Vector2i(get_window().get_mouse_position()) + get_window().position + drag_offset
 		return
