@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dl3jgoik4yrok"]
+
+[ext_resource type="Texture2D" uid="uid://f4rh4ovdmf37" path="res://taskbar_flowers/art/Flowers.png" id="1_3mdfg"]
+
+[resource]
+atlas = ExtResource("1_3mdfg")
+region = Rect2(0, 0, 100, 100)

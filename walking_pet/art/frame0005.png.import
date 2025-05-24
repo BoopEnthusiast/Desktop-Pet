@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://08u58p551o8u"
-path="res://.godot/imported/frame0003.png-61065d635daf66b36caff09db00f3aef.ctex"
+uid="uid://b8cgt3onjuw0n"
+path="res://.godot/imported/frame0005.png-ab6cd603b06b25ae4f04f0cc563d7bbf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/frame0003.png"
-dest_files=["res://.godot/imported/frame0003.png-61065d635daf66b36caff09db00f3aef.ctex"]
+source_file="res://walking_pet/art/frame0005.png"
+dest_files=["res://.godot/imported/frame0005.png-ab6cd603b06b25ae4f04f0cc563d7bbf.ctex"]
 
 [params]
 

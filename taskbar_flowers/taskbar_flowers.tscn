@@ -5,8 +5,19 @@
 [node name="TaskbarFlowers" type="Window"]
 auto_translate_mode = 1
 transparent_bg = true
+title = "Taskbar Flowers"
+size = Vector2i(1080, 100)
 unresizable = true
+borderless = true
 always_on_top = true
 transparent = true
 script = ExtResource("1_7j2ki")
 module_title = "Taskbar Flowers"
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

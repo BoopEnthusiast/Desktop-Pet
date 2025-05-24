@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8cgt3onjuw0n"
-path="res://.godot/imported/frame0005.png-6c6671510d1af9c7a0f14312f9c85ccc.ctex"
+uid="uid://f4rh4ovdmf37"
+path="res://.godot/imported/Flowers.png-c86c9a9d85e4908c9c9545b3ea111944.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/frame0005.png"
-dest_files=["res://.godot/imported/frame0005.png-6c6671510d1af9c7a0f14312f9c85ccc.ctex"]
+source_file="res://taskbar_flowers/art/Flowers.png"
+dest_files=["res://.godot/imported/Flowers.png-c86c9a9d85e4908c9c9545b3ea111944.ctex"]
 
 [params]
 

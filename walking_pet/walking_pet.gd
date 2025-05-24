@@ -2,7 +2,7 @@ class_name WalkingPet
 extends Module
 
 
-const FRAME_0000 = preload("res://art/frame0000.png")
+const FRAME_0000 = preload("res://walking_pet/art/frame0000.png")
 
 const SPEED = 200
 const BUFFER = 5

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5fc75iw72eif"]
+
+[ext_resource type="Script" uid="uid://lr0yy7picvtn" path="res://taskbar_flowers/flower.gd" id="1_urqo6"]
+
+[node name="Flower" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_urqo6")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
