@@ -2,9 +2,12 @@ class_name Flower
 extends TextureButton
 
 
+signal deleted_flower(flower: Flower)
+
 const FLOWERS_ATLAST_TEXTURE = preload("res://taskbar_flowers/art/flowers_atlast_texture.tres")
 
 var texture: AtlasTexture
+var parent_module: TaskbarFlowers
 
 
 func _ready() -> void:
@@ -15,4 +18,5 @@ func _ready() -> void:
 
 
 func _on_pressed() -> void:
+	deleted_flower.emit(self)
 	queue_free()
