@@ -1,22 +1,25 @@
 class_name Flower
-extends TextureButton
+extends Area2D
 
 
 signal deleted_flower(flower: Flower)
 
-const FLOWERS_ATLAST_TEXTURE = preload("res://taskbar_flowers/art/flowers_atlast_texture.tres")
+var start_position: Vector2
 
-var texture: AtlasTexture
-var parent_module: TaskbarFlowers
+@onready var polygon: PackedVector2Array:
+	get():
+		return stem.polygon
+
+@onready var stem: FlowerStem = $Stem
 
 
 func _ready() -> void:
-	texture = FLOWERS_ATLAST_TEXTURE.duplicate()
-	texture.region.position.x = randi_range(0, 9) * 100
-	flip_h = [true, false].pick_random()
-	texture_normal = texture
+	print(start_position)
+	stem.next_height = start_position.y
+	stem.path.curve.set_point_position(0, start_position)
 
 
-func _on_pressed() -> void:
-	deleted_flower.emit(self)
-	queue_free()
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event.is_action_pressed(&"click"):
+		deleted_flower.emit(self)
+		queue_free()

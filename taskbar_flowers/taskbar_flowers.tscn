@@ -11,16 +11,23 @@ unresizable = true
 borderless = true
 always_on_top = true
 transparent = true
+content_scale_stretch = 1
 script = ExtResource("1_7j2ki")
 module_title = "Taskbar Flowers"
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 5.0
 one_shot = true
 autostart = true
 
 [node name="MergePolygon" type="Polygon2D" parent="."]
 color = Color(1, 1, 1, 0)
 
+[node name="UpdatePassthrough" type="Timer" parent="."]
+autostart = true
+
+[node name="Debug" type="Polygon2D" parent="."]
+color = Color(1, 0, 1, 1)
+
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="UpdatePassthrough" to="." method="_update_mouse_passthrough_polygon"]
