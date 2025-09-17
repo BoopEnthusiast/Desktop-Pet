@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Desktop Pet"
 run/main_scene="uid://cst8hevm42cfb"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://walking_pet/art/icon.svg"
 
 [autoload]
