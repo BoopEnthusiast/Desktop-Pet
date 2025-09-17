@@ -14,7 +14,6 @@ var start_position: Vector2
 
 
 func _ready() -> void:
-	print(start_position)
 	stem.next_height = start_position.y
 	stem.path.curve.set_point_position(0, start_position)
 

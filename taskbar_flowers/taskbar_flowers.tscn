@@ -5,6 +5,7 @@
 [node name="TaskbarFlowers" type="Window"]
 auto_translate_mode = 1
 transparent_bg = true
+oversampling_override = 1.0
 title = "Taskbar Flowers"
 size = Vector2i(1080, 100)
 unresizable = true
@@ -14,6 +15,7 @@ transparent = true
 content_scale_stretch = 1
 script = ExtResource("1_7j2ki")
 module_title = "Taskbar Flowers"
+module_settings = null
 
 [node name="SpawnTimer" type="Timer" parent="."]
 one_shot = true

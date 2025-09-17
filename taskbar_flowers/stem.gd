@@ -21,15 +21,16 @@ func _process(delta: float) -> void:
 
 func grow_stem(delta: float) -> void:
 	_grow_path(delta)
-	_update_line()
-	_update_collider()
+	if get_tree().get_frame() % 30 == 0:
+		_update_line()
+		_update_collider()
 
 
 func _grow_path(delta: float) -> void:
 	var curve: Curve2D = path.curve
 	var active_point_index: int = curve.point_count - 1
 	var active_point: Vector2 = curve.get_point_position(active_point_index)
-	if active_point.y <= next_height:
+	if active_point.y < next_height:
 		next_height -= randf_range(10.0, 20.0)
 		_acceleration = Vector2.from_angle(randf_range(0.0, TAU)) * 2.0
 		curve.add_point(active_point)
