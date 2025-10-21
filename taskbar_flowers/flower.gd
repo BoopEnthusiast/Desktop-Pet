@@ -3,6 +3,7 @@ extends Area2D
 
 
 signal deleted_flower(flower: Flower)
+signal new_growth_height(height: float)
 
 var start_position: Vector2
 
@@ -22,3 +23,7 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 	if event.is_action_pressed(&"click"):
 		deleted_flower.emit(self)
 		queue_free()
+
+
+func _on_stem_new_growth_height() -> void:
+	new_growth_height.emit(stem.next_height)

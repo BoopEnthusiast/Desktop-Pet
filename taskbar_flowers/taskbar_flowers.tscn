@@ -15,9 +15,9 @@ transparent = true
 content_scale_stretch = 1
 script = ExtResource("1_7j2ki")
 module_title = "Taskbar Flowers"
-module_settings = null
 
 [node name="SpawnTimer" type="Timer" parent="."]
+process_callback = 0
 one_shot = true
 autostart = true
 
@@ -25,6 +25,7 @@ autostart = true
 color = Color(1, 1, 1, 0)
 
 [node name="UpdatePassthrough" type="Timer" parent="."]
+process_callback = 0
 autostart = true
 
 [node name="Debug" type="Polygon2D" parent="."]
