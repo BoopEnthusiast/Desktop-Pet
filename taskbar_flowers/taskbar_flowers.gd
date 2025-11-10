@@ -5,6 +5,11 @@ extends Module
 const FLOWER = preload("res://taskbar_flowers/flower.tscn")
 const STARTING_VERTICAL_SIZE = 100
 
+@export var transform_array: Transform2D:
+	set(value):
+		debug.polygon = debug.polygon * value
+		transform_array = value
+
 var tallest_flower: Flower
 var flowers: Array[Flower]
 
