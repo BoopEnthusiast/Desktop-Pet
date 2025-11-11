@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7kpg6e3srpr5"]
+
+[ext_resource type="Script" uid="uid://cu6nmshg47vyo" path="res://blob/blob.gd" id="1_5kxo4"]
+[ext_resource type="Script" uid="uid://kass8jejbnhh" path="res://blob/main_blob.gd" id="2_ao01h"]
+
+[node name="Blob" type="Window"]
+transparent_bg = true
+title = "Blob"
+initial_position = 4
+size = Vector2i(200, 200)
+transparent = true
+mouse_passthrough = true
+script = ExtResource("1_5kxo4")
+module_title = "Blob"
+metadata/_custom_type_script = "uid://cv2stdvwek26s"
+
+[node name="MainBlob" type="Node2D" parent="."]
+position = Vector2(100, 100)
+script = ExtResource("2_ao01h")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+visible = false
+
+[node name="Passthrough Polygon" type="Polygon2D" parent="."]
+visible = false
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(0, 100, 25, 25, 100, 0, 175, 25, 200, 100, 175, 175, 100, 200, 25, 175)
+uv = PackedVector2Array(0, 100, 0, 25)

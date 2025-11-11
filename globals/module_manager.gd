@@ -16,6 +16,10 @@ var available_modules: Array[Dictionary] = [
 		"title": "Taskbar Flowers",
 		"path": "res://taskbar_flowers/taskbar_flowers.tscn",
 	},
+	{
+		"title": "Blob",
+		"path": "res://blob/blob.tscn"
+	},
 ]
 ## The list of loaded in modules, these should all be children of this ModuleManager node.
 var loaded_modules: Array[Module] = []
