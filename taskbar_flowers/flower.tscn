@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c5fc75iw72eif"]
 
-[ext_resource type="Script" uid="uid://lr0yy7picvtn" path="res://taskbar_flowers/flower.gd" id="1_urqo6"]
+[ext_resource type="Script" uid="uid://lr0yy7picvtn" path="res://taskbar_flowers/flower_old.gd" id="1_urqo6"]
 [ext_resource type="Script" uid="uid://cdxydbi0kq2dj" path="res://taskbar_flowers/stem.gd" id="2_fmd0x"]
 
 [sub_resource type="Curve2D" id="Curve2D_urqo6"]

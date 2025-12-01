@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://c67rhksf0wrsf"]
+
+[ext_resource type="Script" uid="uid://bwxyvt1n00apb" path="res://taskbar_flowers/taskbar_flowers_old.gd" id="1_va5rq"]
+
+[node name="TaskbarFlowers" type="Window"]
+auto_translate_mode = 1
+transparent_bg = true
+oversampling_override = 1.0
+title = "Taskbar Flowers"
+size = Vector2i(1080, 100)
+unresizable = true
+borderless = true
+always_on_top = true
+transparent = true
+content_scale_stretch = 1
+script = ExtResource("1_va5rq")
+module_title = "Taskbar Flowers"
+
+[node name="SpawnTimer" type="Timer" parent="."]
+process_callback = 0
+one_shot = true
+autostart = true
+
+[node name="MergePolygon" type="Polygon2D" parent="."]
+color = Color(0, 1, 1, 0.49411765)
+
+[node name="UpdatePassthrough" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
+[node name="Debug" type="Polygon2D" parent="."]
+color = Color(1, 0, 1, 0.50980395)
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="focus_entered" from="." to="." method="_update_screen"]
+[connection signal="focus_exited" from="." to="." method="_update_screen"]
+[connection signal="mouse_entered" from="." to="." method="_update_screen"]
+[connection signal="mouse_exited" from="." to="." method="_update_screen"]
+[connection signal="size_changed" from="." to="." method="_update_screen"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="UpdatePassthrough" to="." method="_update_mouse_passthrough_polygon"]
