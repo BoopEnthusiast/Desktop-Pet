@@ -20,10 +20,16 @@ func _ready() -> void:
 
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	print("Flower interacted with")
 	if event.is_action_pressed(&"click"):
+		print("Flower clicked")
 		deleted_flower.emit(self)
 		queue_free()
 
 
 func _on_stem_new_growth_height() -> void:
 	new_growth_height.emit(stem.next_height)
+
+
+func _on_mouse_entered() -> void:
+	print("Mouse entered flower")

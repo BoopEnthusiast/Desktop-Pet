@@ -25,9 +25,7 @@ func make_new_file_with_defaults() -> void:
 	var err = config_file.save("user://%s" % config_file_name)
 	
 	# Make sure it saved correctly
-	if err != OK:
-		print("Failed to save video settings")
-		print(error_string(err))
+	assert(err == OK, "Failed to save video settings")
 
 
 func load_config() -> void:

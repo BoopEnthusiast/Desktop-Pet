@@ -18,14 +18,6 @@ var flowers: Array[Flower]
 @onready var debug: Polygon2D = $Debug
 
 
-func _ready() -> void:
-	size_changed.connect(_update_screen)
-	focus_entered.connect(_update_screen)
-	focus_exited.connect(_update_screen)
-	mouse_entered.connect(_update_screen)
-	mouse_exited.connect(_update_screen)
-
-
 func _on_close_requested() -> void:
 	visible = false
 
@@ -49,7 +41,10 @@ func _update_screen() -> void:
 	var usable_rect: Rect2i = DisplayServer.screen_get_usable_rect(DisplayServer.get_primary_screen())
 	size = Vector2i(usable_rect.size.x, STARTING_VERTICAL_SIZE)
 	position = Vector2i(usable_rect.position.x, usable_rect.end.y - STARTING_VERTICAL_SIZE)
+	
 	# Update the merge polygon
+	if not is_node_ready():
+		await ready
 	merge_polygon.polygon = [
 		Vector2(0.0, size.y),
 		Vector2(usable_rect.size.x, size.y),
@@ -80,6 +75,7 @@ func _on_flower_new_growth_height(height: float) -> void:
 		size.y += 10
 	for flower: Flower in flowers:
 		flower.position.y = size.y
+	print("New height: ", size.y)
 
 
 func _on_deleted_flower(flower: Flower) -> void:

@@ -18,6 +18,7 @@ point_count = 4
 script = ExtResource("1_urqo6")
 
 [node name="Stem" type="CollisionPolygon2D" parent="."]
+build_mode = 1
 script = ExtResource("2_fmd0x")
 
 [node name="StemPath" type="Path2D" parent="Stem"]
@@ -32,4 +33,5 @@ end_cap_mode = 2
 antialiased = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="new_growth_height" from="Stem" to="." method="_on_stem_new_growth_height"]

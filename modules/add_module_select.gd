@@ -9,7 +9,6 @@ func _ready() -> void:
 	for module: Dictionary in ModuleManager.available_modules:
 		var new_button: Button = Button.new()
 		new_button.text = module["title"]
-		print(module["title"])
 		
 		new_button.pressed.connect(_on_module_button_pressed.bind(new_button))
 		

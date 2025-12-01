@@ -22,15 +22,20 @@ one_shot = true
 autostart = true
 
 [node name="MergePolygon" type="Polygon2D" parent="."]
-color = Color(1, 1, 1, 0)
+color = Color(0, 1, 1, 0.49411765)
 
 [node name="UpdatePassthrough" type="Timer" parent="."]
 process_callback = 0
 autostart = true
 
 [node name="Debug" type="Polygon2D" parent="."]
-color = Color(1, 0, 1, 1)
+color = Color(1, 0, 1, 0.50980395)
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="focus_entered" from="." to="." method="_update_screen"]
+[connection signal="focus_exited" from="." to="." method="_update_screen"]
+[connection signal="mouse_entered" from="." to="." method="_update_screen"]
+[connection signal="mouse_exited" from="." to="." method="_update_screen"]
+[connection signal="size_changed" from="." to="." method="_update_screen"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="UpdatePassthrough" to="." method="_update_mouse_passthrough_polygon"]
