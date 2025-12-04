@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bl5kllnjrsdev"]
+[gd_scene load_steps=4 format=3 uid="uid://bl5kllnjrsdev"]
 
 [ext_resource type="Script" uid="uid://bv8hxxpll787g" path="res://taskbar_flowers/taskbar_flowers.gd" id="1_7j2ki"]
+[ext_resource type="Script" uid="uid://ccxps73fe752h" path="res://taskbar_flowers/flower_spawner.gd" id="2_i2p3q"]
+[ext_resource type="Script" uid="uid://lbs1kpb0fivf" path="res://taskbar_flowers/passthrough_polygon.gd" id="4_jobqk"]
 
 [node name="TaskbarFlowers" type="Window"]
+physics_interpolation_mode = 2
 transparent_bg = true
 oversampling_override = 1.0
 title = "Taskbar Flowers"
@@ -15,3 +18,37 @@ content_scale_mode = 1
 script = ExtResource("1_7j2ki")
 module_title = "Taskbar Flowers"
 metadata/_custom_type_script = "uid://cv2stdvwek26s"
+
+[node name="FlowerSpawner" type="Timer" parent="."]
+one_shot = true
+autostart = true
+script = ExtResource("2_i2p3q")
+
+[node name="MergePolygon" type="Polygon2D" parent="."]
+visible = false
+color = Color(0, 1, 1, 0.49411765)
+
+[node name="DebugBackground" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 0, 0.30980393)
+
+[node name="PassthroughPolygon" type="Node" parent="."]
+script = ExtResource("4_jobqk")
+
+[node name="Debug" type="Polygon2D" parent="PassthroughPolygon"]
+color = Color(1, 0, 1, 0.50980395)
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="focus_entered" from="." to="." method="_update_window"]
+[connection signal="focus_exited" from="." to="." method="_update_window"]
+[connection signal="mouse_entered" from="." to="." method="_update_window"]
+[connection signal="mouse_exited" from="." to="." method="_update_window"]
+[connection signal="ready" from="." to="." method="_update_window"]
+[connection signal="size_changed" from="." to="." method="_update_window"]
+[connection signal="new_flower_made" from="FlowerSpawner" to="." method="_on_new_flower_made"]
+[connection signal="timeout" from="FlowerSpawner" to="FlowerSpawner" method="_on_timeout"]

@@ -1,37 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5fc75iw72eif"]
+[gd_scene load_steps=5 format=3 uid="uid://cdsgvyubp0tfp"]
 
-[ext_resource type="Script" uid="uid://lr0yy7picvtn" path="res://taskbar_flowers/flower_old.gd" id="1_urqo6"]
-[ext_resource type="Script" uid="uid://cdxydbi0kq2dj" path="res://taskbar_flowers/stem.gd" id="2_fmd0x"]
+[ext_resource type="Script" uid="uid://6hleu2ni6ntr" path="res://taskbar_flowers/flower.gd" id="1_urqo6"]
+
+[sub_resource type="Curve" id="Curve_urqo6"]
+_data = [Vector2(0, 1), 0.0, -0.0852, 0, 0, Vector2(0.2382445, 0.7305276), -0.0748727, -0.0748727, 0, 0, Vector2(0.5611285, 0.7141959), 0.0, 0.0, 0, 0, Vector2(1, 0.0546875), -2.198988, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_1jxtj"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.62457335, 0.83617747, 0.9590444, 1)
+colors = PackedColorArray(0, 0.6509804, 0, 1, 0.24925102, 0.6956457, 0.22820576, 1, 0.44519654, 0.7667954, 0.42107123, 1, 0.58187854, 0.82365483, 0.56021637, 1, 1, 1, 1, 1)
 
 [sub_resource type="Curve2D" id="Curve2D_urqo6"]
-bake_interval = 10.0
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 100)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0)
 }
 point_count = 1
 
-[sub_resource type="Curve" id="Curve_urqo6"]
-_data = [Vector2(0, 1), 0.0, -0.0852, 0, 0, Vector2(0.199541, 0.693984), -0.0748727, -0.0748727, 0, 0, Vector2(0.630734, 0.676983), 0.0, 0.0, 0, 0, Vector2(1, 0.247253), -3.5934, 0.0, 0, 0]
-point_count = 4
-
-[node name="Flower" type="Area2D"]
-script = ExtResource("1_urqo6")
-
-[node name="Stem" type="CollisionPolygon2D" parent="."]
-build_mode = 1
-script = ExtResource("2_fmd0x")
-
-[node name="StemPath" type="Path2D" parent="Stem"]
-curve = SubResource("Curve2D_urqo6")
-
-[node name="StemLine" type="Line2D" parent="Stem"]
+[node name="Flower" type="Line2D"]
 width_curve = SubResource("Curve_urqo6")
 default_color = Color(0, 0.65098, 0, 1)
+gradient = SubResource("Gradient_1jxtj")
 joint_mode = 2
-begin_cap_mode = 1
+begin_cap_mode = 2
 end_cap_mode = 2
 antialiased = true
+script = ExtResource("1_urqo6")
+curve = SubResource("Curve2D_urqo6")
 
-[connection signal="input_event" from="." to="." method="_on_input_event"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="new_growth_height" from="Stem" to="." method="_on_stem_new_growth_height"]
+[node name="Debug" type="Polygon2D" parent="."]
+visible = false
+color = Color(0, 0, 1, 0.4509804)
