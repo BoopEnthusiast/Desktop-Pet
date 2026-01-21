@@ -6,6 +6,7 @@ signal new_growth_height(flower: Flower)
 
 @export var curve: Curve2D
 
+var location: float
 var next_goal_height: float = 0.0
 
 var _velocity: Vector2 = Vector2.UP
@@ -20,7 +21,7 @@ func _enter_tree() -> void:
 
 func _process(delta: float) -> void:
 	_grow_path(delta)
-	#points = curve.get_baked_points()
+	points = curve.get_baked_points()
 	#debug.polygon = Geometry2D.offset_polyline(points, width / 2, Geometry2D.JOIN_ROUND, Geometry2D.END_ROUND)[0]
 
 
