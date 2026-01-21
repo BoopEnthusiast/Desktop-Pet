@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdsgvyubp0tfp"]
+[gd_scene format=3 uid="uid://cdsgvyubp0tfp"]
 
 [ext_resource type="Script" uid="uid://6hleu2ni6ntr" path="res://taskbar_flowers/flower.gd" id="1_urqo6"]
 
@@ -17,7 +17,7 @@ _data = {
 }
 point_count = 1
 
-[node name="Flower" type="Line2D"]
+[node name="Flower" type="Line2D" unique_id=1652562149]
 width_curve = SubResource("Curve_urqo6")
 default_color = Color(0, 0.65098, 0, 1)
 gradient = SubResource("Gradient_1jxtj")
@@ -28,6 +28,5 @@ antialiased = true
 script = ExtResource("1_urqo6")
 curve = SubResource("Curve2D_urqo6")
 
-[node name="Debug" type="Polygon2D" parent="."]
-visible = false
+[node name="Debug" type="Polygon2D" parent="." unique_id=159052933]
 color = Color(0, 0, 1, 0.4509804)

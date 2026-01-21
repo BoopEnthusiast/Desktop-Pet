@@ -6,7 +6,7 @@ signal new_growth_height(flower: Flower)
 
 @export var curve: Curve2D
 
-var location: float
+var start_position: float
 var next_goal_height: float = 0.0
 
 var _velocity: Vector2 = Vector2.UP
@@ -21,15 +21,16 @@ func _enter_tree() -> void:
 
 func _process(delta: float) -> void:
 	_grow_path(delta)
+	
 	points = curve.get_baked_points()
-	#debug.polygon = Geometry2D.offset_polyline(points, width / 2, Geometry2D.JOIN_ROUND, Geometry2D.END_ROUND)[0]
+	debug.polygon = Geometry2D.offset_polyline(curve.get_baked_points(), width / 2, Geometry2D.JOIN_ROUND, Geometry2D.END_ROUND)[0]
 
 
 func _grow_path(delta: float) -> void:
 	var active_point_index: int = curve.point_count - 1
 	var active_point: Vector2 = curve.get_point_position(active_point_index)
 	if active_point.y < next_goal_height:
-		next_goal_height -= randf_range(10.0, 20.0)
+		next_goal_height -= randf_range(10.0, 40.0)
 		_acceleration = Vector2.from_angle(randf_range(0.0, TAU)) * 2.0
 		curve.add_point(active_point)
 		_grow_path(delta)

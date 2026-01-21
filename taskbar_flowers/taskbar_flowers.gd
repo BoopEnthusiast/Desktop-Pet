@@ -27,32 +27,20 @@ func _on_flower_new_growth_height(flower: Flower) -> void:
 
 
 func _update_window() -> void:
+	
 	# Update the window
 	var usable_rect: Rect2i = DisplayServer.screen_get_usable_rect(DisplayServer.get_primary_screen())
+	
+	if usable_rect.size != size:
+		# Move flowers
+		for flower: Flower in flowers:
+			flower.position.y = size.y
+	
 	size = usable_rect.size
-	
-	# Move flowers
-	for flower: Flower in flowers:
-		flower.position.y = size.y
-		flower.position.x = size.x * flower.location
-	
-	## Window size
-	#var window_height: int
-	#if is_instance_valid(tallest_flower) and tallest_flower.next_goal_height < -100.0:
-		#window_height = int(-tallest_flower.next_goal_height)
-	#else:
-		#window_height = 100
-	#print("Window: ",window_height)
-	#size = Vector2i(usable_rect.size.x, window_height)
-	## Window position
-	#position = Vector2i(usable_rect.position.x, usable_rect.end.y - window_height)
-	
-	
-	
-	
 	
 	if not is_node_ready():
 		await ready
+	
 	# Update the merge polygon
 	merge_polygon = [
 		Vector2(0.0, 0.0),

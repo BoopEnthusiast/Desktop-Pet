@@ -35,19 +35,18 @@ func _start_worker_thread() -> void:
 	).filter(func (d: Dictionary):
 			if d == null:
 				return false
-			if d[&"points"].size() > 0:
+			elif d[&"points"].size() > 0:
 				return true
 			else:
 				return false
 	)
 	_height = _main.height
-	_update_passthrough_polygon()
+	#_update_passthrough_polygon()
 	#_current_task_id = WorkerThreadPool.add_task(_update_passthrough_polygon)
 
 
 func _update_passthrough_polygon() -> void:
 	for flower: Dictionary in _flowers:
-		print("Flower: ",flower[&"width"],"  ",flower[&"points"])
 		var flower_poly := Geometry2D.offset_polyline(flower[&"points"], flower[&"width"] / 2, Geometry2D.JOIN_ROUND, Geometry2D.END_ROUND)[0]
 		var polys := Geometry2D.merge_polygons(_poly, flower_poly)
 		_poly = polys[0]
