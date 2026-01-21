@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bl5kllnjrsdev"]
+[gd_scene format=3 uid="uid://bl5kllnjrsdev"]
 
 [ext_resource type="Script" uid="uid://bv8hxxpll787g" path="res://taskbar_flowers/taskbar_flowers.gd" id="1_7j2ki"]
 [ext_resource type="Script" uid="uid://ccxps73fe752h" path="res://taskbar_flowers/flower_spawner.gd" id="2_i2p3q"]
 [ext_resource type="Script" uid="uid://lbs1kpb0fivf" path="res://taskbar_flowers/passthrough_polygon.gd" id="4_jobqk"]
 
-[node name="TaskbarFlowers" type="Window"]
+[node name="TaskbarFlowers" type="Window" unique_id=429110695]
 physics_interpolation_mode = 2
 transparent_bg = true
 oversampling_override = 1.0
@@ -19,16 +19,16 @@ script = ExtResource("1_7j2ki")
 module_title = "Taskbar Flowers"
 metadata/_custom_type_script = "uid://cv2stdvwek26s"
 
-[node name="FlowerSpawner" type="Timer" parent="."]
+[node name="FlowerSpawner" type="Timer" parent="." unique_id=1040877654]
 one_shot = true
 autostart = true
 script = ExtResource("2_i2p3q")
 
-[node name="MergePolygon" type="Polygon2D" parent="."]
+[node name="MergePolygon" type="Polygon2D" parent="." unique_id=950057962]
 visible = false
 color = Color(0, 1, 1, 0.49411765)
 
-[node name="DebugBackground" type="ColorRect" parent="."]
+[node name="DebugBackground" type="ColorRect" parent="." unique_id=1715133457]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,10 +37,10 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 0, 0.30980393)
 
-[node name="PassthroughPolygon" type="Node" parent="."]
+[node name="PassthroughPolygon" type="Node" parent="." unique_id=982224251]
 script = ExtResource("4_jobqk")
 
-[node name="Debug" type="Polygon2D" parent="PassthroughPolygon"]
+[node name="Debug" type="Polygon2D" parent="PassthroughPolygon" unique_id=605014679]
 color = Color(1, 0, 1, 0.50980395)
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
