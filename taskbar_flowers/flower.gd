@@ -2,8 +2,6 @@ class_name Flower
 extends Line2D
 
 
-signal new_growth_height(flower: Flower)
-
 @export var curve: Curve2D
 
 var start_position: float
@@ -34,7 +32,6 @@ func _grow_path(delta: float) -> void:
 		_acceleration = Vector2.from_angle(randf_range(0.0, TAU)) * 2.0
 		curve.add_point(active_point)
 		_grow_path(delta)
-		new_growth_height.emit(self)
 		return
 	
 	_acceleration = _acceleration.move_toward(Vector2(randf_range(-1.0, 1.0), randf_range(-2.0, 1.0)), delta)

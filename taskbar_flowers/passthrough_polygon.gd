@@ -9,11 +9,11 @@ var _flowers: Array # Array[Dictionary] is &"points": Array[float], &"width": fl
 var _height: float
 
 @onready var _main: TaskbarFlowers = $".."
-#@onready var _debug: Polygon2D = $Debug
+@onready var _debug: Polygon2D = $Debug
 
 
 func _exit_tree() -> void:
-	pass#WorkerThreadPool.wait_for_task_completion(_current_task_id)
+	WorkerThreadPool.wait_for_task_completion(_current_task_id)
 
 
 func start_passthrough_update() -> void:
@@ -29,7 +29,6 @@ func _start_worker_thread() -> void:
 	_flowers = _main.flowers.map(func (f: Flower):
 			var final_dict: Dictionary
 			final_dict[&"width"] = f.width
-			print(f.points)
 			final_dict[&"points"] = f.points.duplicate()
 			return final_dict
 	).filter(func (d: Dictionary):
@@ -42,7 +41,7 @@ func _start_worker_thread() -> void:
 	)
 	_height = _main.height
 	#_update_passthrough_polygon()
-	#_current_task_id = WorkerThreadPool.add_task(_update_passthrough_polygon)
+	_current_task_id = WorkerThreadPool.add_task(_update_passthrough_polygon)
 
 
 func _update_passthrough_polygon() -> void:
@@ -54,4 +53,4 @@ func _update_passthrough_polygon() -> void:
 	_poly = _poly * Transform2D(0.0, Vector2.UP * _height)
 	
 	_main.set_deferred(&"mouse_passthrough_polygon", _poly)
-	#_debug.set_deferred(&"polygon", _poly)
+	_debug.set_deferred(&"polygon", _poly)

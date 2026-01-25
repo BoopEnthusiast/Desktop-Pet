@@ -14,6 +14,8 @@ unresizable = true
 borderless = true
 always_on_top = true
 transparent = true
+minimize_disabled = true
+maximize_disabled = true
 content_scale_mode = 1
 script = ExtResource("1_7j2ki")
 module_title = "Taskbar Flowers"
@@ -29,7 +31,6 @@ visible = false
 color = Color(0, 1, 1, 0.49411765)
 
 [node name="DebugBackground" type="ColorRect" parent="." unique_id=1715133457]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -49,6 +50,5 @@ color = Color(1, 0, 1, 0.50980395)
 [connection signal="mouse_entered" from="." to="." method="_update_window"]
 [connection signal="mouse_exited" from="." to="." method="_update_window"]
 [connection signal="ready" from="." to="." method="_update_window"]
-[connection signal="size_changed" from="." to="." method="_update_window"]
 [connection signal="new_flower_made" from="FlowerSpawner" to="." method="_on_new_flower_made"]
 [connection signal="timeout" from="FlowerSpawner" to="FlowerSpawner" method="_on_timeout"]

@@ -15,19 +15,10 @@ var height: float
 
 func _on_new_flower_made(new_flower: Flower) -> void:
 	add_child(new_flower)
-	new_flower.new_growth_height.connect(_on_flower_new_growth_height)
 	flowers.append(new_flower)
 
 
-func _on_flower_new_growth_height(flower: Flower) -> void:
-	if flower == tallest_flower or not is_instance_valid(tallest_flower) or flower.next_goal_height < tallest_flower.next_goal_height:
-		tallest_flower = flower
-		_update_window()
-	passthrough_polygon.start_passthrough_update()
-
-
 func _update_window() -> void:
-	
 	# Update the window
 	var usable_rect: Rect2i = DisplayServer.screen_get_usable_rect(DisplayServer.get_primary_screen())
 	
@@ -40,6 +31,8 @@ func _update_window() -> void:
 	
 	if not is_node_ready():
 		await ready
+	
+	passthrough_polygon.start_passthrough_update()
 	
 	# Update the merge polygon
 	merge_polygon = [
