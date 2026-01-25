@@ -5,9 +5,10 @@
 [ext_resource type="Script" uid="uid://lbs1kpb0fivf" path="res://taskbar_flowers/passthrough_polygon.gd" id="4_jobqk"]
 
 [node name="TaskbarFlowers" type="Window" unique_id=429110695]
-physics_interpolation_mode = 2
+disable_3d = true
 transparent_bg = true
-oversampling_override = 1.0
+use_hdr_2d = true
+anisotropic_filtering_level = 0
 title = "Taskbar Flowers"
 size = Vector2i(1080, 100)
 unresizable = true
@@ -31,6 +32,7 @@ visible = false
 color = Color(0, 1, 1, 0.49411765)
 
 [node name="DebugBackground" type="ColorRect" parent="." unique_id=1715133457]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -42,6 +44,7 @@ color = Color(1, 1, 0, 0.30980393)
 script = ExtResource("4_jobqk")
 
 [node name="Debug" type="Polygon2D" parent="PassthroughPolygon" unique_id=605014679]
+visible = false
 color = Color(1, 0, 1, 0.50980395)
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]

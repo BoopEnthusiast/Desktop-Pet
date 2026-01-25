@@ -9,7 +9,7 @@ var _flowers: Array # Array[Dictionary] is &"points": Array[float], &"width": fl
 var _height: float
 
 @onready var _main: TaskbarFlowers = $".."
-@onready var _debug: Polygon2D = $Debug
+#@onready var _debug: Polygon2D = $Debug
 
 
 func _exit_tree() -> void:
@@ -53,4 +53,4 @@ func _update_passthrough_polygon() -> void:
 	_poly = _poly * Transform2D(0.0, Vector2.UP * _height)
 	
 	_main.set_deferred(&"mouse_passthrough_polygon", _poly)
-	_debug.set_deferred(&"polygon", _poly)
+	#_debug.set_deferred(&"polygon", _poly)

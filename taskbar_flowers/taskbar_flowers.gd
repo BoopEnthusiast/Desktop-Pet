@@ -44,6 +44,9 @@ func _update_window() -> void:
 	merge_polygon_node.polygon = merge_polygon
 	height = size.y
 	
+	mouse_passthrough = true
+	mouse_passthrough = false
+	
 	# TODO: remove all newly out-of-bounds flowers and make flowers not want to go out of bounds
 
 

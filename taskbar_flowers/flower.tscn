@@ -8,8 +8,8 @@ point_count = 4
 
 [sub_resource type="Gradient" id="Gradient_1jxtj"]
 interpolation_color_space = 2
-offsets = PackedFloat32Array(0, 0.62457335, 0.83617747, 0.9590444, 1)
-colors = PackedColorArray(0, 0.6509804, 0, 1, 0.24925102, 0.6956457, 0.22820576, 1, 0.44519654, 0.7667954, 0.42107123, 1, 0.58187854, 0.82365483, 0.56021637, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0, 0.7720207, 0.9222798, 0.96891195, 1)
+colors = PackedColorArray(0, 0.6509804, 0, 1, 0.24925102, 0.6956457, 0.22820576, 1, 0.44519654, 0.7667954, 0.42107123, 1, 0.58187854, 0.82365483, 0.56021637, 1, 0.6775006, 0.99999994, 0.7280828, 1)
 
 [sub_resource type="Curve2D" id="Curve2D_urqo6"]
 _data = {
@@ -28,5 +28,8 @@ antialiased = true
 script = ExtResource("1_urqo6")
 curve = SubResource("Curve2D_urqo6")
 
-[node name="Debug" type="Polygon2D" parent="." unique_id=159052933]
+[node name="DebugLine" type="Polygon2D" parent="." unique_id=159052933]
+visible = false
 color = Color(0, 0, 1, 0.4509804)
+
+[node name="DebugPath" type="Path2D" parent="." unique_id=1814266199]
