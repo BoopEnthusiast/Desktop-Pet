@@ -3,7 +3,7 @@ extends Module
 
 
 var flowers: Array[Flower]
-var tallest_flower: Flower
+var grow_flower_mutex: Mutex = Mutex.new()
 
 var previous_size: Vector2i
 
@@ -15,7 +15,9 @@ var height: float
 @onready var passthrough_polygon: PassthroughPolygon = $PassthroughPolygon
 
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
+	#if get_tree().get_frame() % 30 == 0:
+		#print("Taskbar flowers: ",get_tree().get_frame(),get_stack())
 	passthrough_polygon.start_passthrough_update()
 
 
@@ -48,7 +50,9 @@ func update_window() -> void:
 
 func _on_new_flower_made(new_flower: Flower) -> void:
 	add_child(new_flower)
+	grow_flower_mutex.lock()
 	flowers.append(new_flower)
+	grow_flower_mutex.unlock()
 
 
 func _on_close_requested() -> void:
