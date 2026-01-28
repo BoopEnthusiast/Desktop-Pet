@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dmnjhk0c8d87v"]
+
+[ext_resource type="Script" uid="uid://t1vnquvo52a4" path="res://lil_guys/lil_guys.gd" id="1_skh64"]
+
+[node name="LilGuys" type="Window" unique_id=407832925]
+oversampling_override = 1.0
+script = ExtResource("1_skh64")
+module_title = "Lil Guys"
+metadata/_custom_type_script = "uid://cv2stdvwek26s"

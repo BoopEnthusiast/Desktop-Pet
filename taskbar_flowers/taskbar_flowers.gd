@@ -5,6 +5,8 @@ extends Module
 var flowers: Array[Flower]
 var tallest_flower: Flower
 
+var previous_size: Vector2i
+
 var merge_polygon: PackedVector2Array
 var height: float
 
@@ -18,16 +20,15 @@ func _on_new_flower_made(new_flower: Flower) -> void:
 	flowers.append(new_flower)
 
 
-func _update_window() -> void:
-	# Update the window
-	var usable_rect: Rect2i = DisplayServer.screen_get_usable_rect(DisplayServer.get_primary_screen())
+func update_window() -> void:
+	super()
 	
-	if usable_rect.size != size:
+	if previous_size != size:
 		# Move flowers
 		for flower: Flower in flowers:
 			flower.position.y = size.y
 	
-	size = usable_rect.size
+	previous_size = size
 	
 	if not is_node_ready():
 		await ready
@@ -38,16 +39,14 @@ func _update_window() -> void:
 	merge_polygon = [
 		Vector2(0.0, 0.0),
 		Vector2(0.0, -1.0),
-		Vector2(usable_rect.size.x, -1.0),
-		Vector2(usable_rect.size.x, 0.0),
+		Vector2(size.x, -1.0),
+		Vector2(size.x, 0.0),
 	]
 	merge_polygon_node.polygon = merge_polygon
 	height = size.y
 	
-	mouse_passthrough = true
-	mouse_passthrough = false
-	
 	# TODO: remove all newly out-of-bounds flowers and make flowers not want to go out of bounds
+	# TODO instead: move flowers according to how large the screen is, so if the screen gets smaller it squishes them in
 
 
 func _on_close_requested() -> void:
