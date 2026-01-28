@@ -15,6 +15,6 @@ func _on_timeout() -> void:
 	new_flower.curve.set_point_position(0, Vector2(new_flower.start_position, 0.0))
 	new_flower.position = Vector2.DOWN * main.size.y
 	
-	new_flower_made.emit(new_flower) 
+	new_flower_made.emit(new_flower)
 	
 	start(randf_range(5.0, 30.0))

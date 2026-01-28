@@ -15,9 +15,8 @@ var height: float
 @onready var passthrough_polygon: PassthroughPolygon = $PassthroughPolygon
 
 
-func _on_new_flower_made(new_flower: Flower) -> void:
-	add_child(new_flower)
-	flowers.append(new_flower)
+func _process(_delta: float) -> void:
+	passthrough_polygon.start_passthrough_update()
 
 
 func update_window() -> void:
@@ -33,8 +32,6 @@ func update_window() -> void:
 	if not is_node_ready():
 		await ready
 	
-	passthrough_polygon.start_passthrough_update()
-	
 	# Update the merge polygon
 	merge_polygon = [
 		Vector2(0.0, 0.0),
@@ -47,6 +44,11 @@ func update_window() -> void:
 	
 	# TODO: remove all newly out-of-bounds flowers and make flowers not want to go out of bounds
 	# TODO instead: move flowers according to how large the screen is, so if the screen gets smaller it squishes them in
+
+
+func _on_new_flower_made(new_flower: Flower) -> void:
+	add_child(new_flower)
+	flowers.append(new_flower)
 
 
 func _on_close_requested() -> void:

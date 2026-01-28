@@ -21,6 +21,7 @@ maximize_disabled = true
 content_scale_mode = 1
 script = ExtResource("1_7j2ki")
 module_title = "Taskbar Flowers"
+scaling_mode = 2
 metadata/_custom_type_script = "uid://cv2stdvwek26s"
 
 [node name="FlowerSpawner" type="Timer" parent="." unique_id=1040877654]

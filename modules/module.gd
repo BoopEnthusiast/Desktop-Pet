@@ -38,6 +38,8 @@ enum ScalingMode {
 ## are also available to be used.
 @export_range(-4, 3, 1.0, "or_greater") var scaling_screen: int = -1
 
+var _internally_changed_size: bool = false
+
 
 func _init() -> void:
 	close_requested.connect(update_window)
@@ -72,12 +74,21 @@ func _on_updated_video_config() -> void:
 ## and [signal Node.ready].[br]
 ## It updates the size of the window when it could be needed.
 func update_window() -> void:
+	if _internally_changed_size:
+		return
+	_internally_changed_size = true
+	
 	# Update the window
 	match scaling_mode:
 		ScalingMode.ALL_SCREENS:
-			pass
+			var final_rect: Rect2i = Rect2i()
+			for screen: int in DisplayServer.get_screen_count():
+				final_rect.merge(DisplayServer.screen_get_usable_rect(screen))
+			size = final_rect.size
 		ScalingMode.USABLE:
-			size = DisplayServer.screen_get_usable_rect(scaling_screen).size
+			var usable_rect: Rect2i = DisplayServer.screen_get_usable_rect(scaling_screen)
+			size = usable_rect.size
+			position = usable_rect.position
 		ScalingMode.BOTTOM:
 			pass
 		ScalingMode.TOP:
