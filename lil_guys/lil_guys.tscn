@@ -1,9 +1,25 @@
 [gd_scene format=3 uid="uid://dmnjhk0c8d87v"]
 
 [ext_resource type="Script" uid="uid://t1vnquvo52a4" path="res://lil_guys/lil_guys.gd" id="1_skh64"]
+[ext_resource type="PackedScene" uid="uid://byxu5tha0pbgk" path="res://lil_guys/lil_guys_main.tscn" id="2_f2isi"]
 
 [node name="LilGuys" type="Window" unique_id=407832925]
+transparent_bg = true
+use_hdr_2d = true
 oversampling_override = 1.0
+unresizable = true
+borderless = true
+always_on_top = true
+transparent = true
+minimize_disabled = true
+maximize_disabled = true
 script = ExtResource("1_skh64")
 module_title = "Lil Guys"
+scaling_mode = 3
 metadata/_custom_type_script = "uid://cv2stdvwek26s"
+
+[node name="LilGuysMain" parent="." unique_id=614232962 instance=ExtResource("2_f2isi")]
+offset_left = 69.0
+offset_top = 21.0
+offset_right = 69.0
+offset_bottom = 21.0

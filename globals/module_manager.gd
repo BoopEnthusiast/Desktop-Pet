@@ -9,16 +9,20 @@ signal unloaded_module()
 ## The list of available modules. Keys: "title", "path". The title is the title of the module, used for displaying the available modules when adding a new one.
 var available_modules: Array[Dictionary] = [
 	{
-		"title": "Walking Pet",
-		"path": "res://walking_pet/walking_pet.tscn",
+		&"title": "Walking Pet",
+		&"path": "res://walking_pet/walking_pet.tscn",
 	}, 
 	{
-		"title": "Taskbar Flowers",
-		"path": "res://taskbar_flowers/taskbar_flowers.tscn",
+		&"title": "Taskbar Flowers",
+		&"path": "res://taskbar_flowers/taskbar_flowers.tscn",
 	},
 	{
-		"title": "Blob",
-		"path": "res://blob/blob.tscn"
+		&"title": "Blob",
+		&"path": "res://blob/blob.tscn",
+	},
+	{
+		&"title": "Lil' Guys",
+		&"path": "res://lil_guys/lil_guys.tscn",
 	},
 ]
 ## The list of loaded in modules, these should all be children of this ModuleManager node.
