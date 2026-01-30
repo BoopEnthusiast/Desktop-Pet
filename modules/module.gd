@@ -11,13 +11,13 @@ enum ScalingMode {
 	ALL_SCREENS,
 	## Makes the window cover the full [member screen] excluding the taskbar
 	USABLE,
-	## Stick to the bottom of the [member screen]
+	## Stick to the bottom of the [member screen]. Does not change the y size
 	BOTTOM,
-	## Stick to the top of the [member screen]
+	## Stick to the top of the [member screen]. Does not change the y size
 	TOP,
-	## Stick to the left of the [member screen]
+	## Stick to the left of the [member screen]. Does not change the x size
 	LEFT,
-	## Stick to the right of the [member screen]
+	## Stick to the right of the [member screen]. Does not change the x size
 	RIGHT,
 }
 
@@ -78,6 +78,10 @@ func update_window() -> void:
 		return
 	_internally_changed_size = true
 	
+	var usable_rect: Rect2i 
+	if scaling_mode != ScalingMode.ALL_SCREENS:
+		usable_rect = DisplayServer.screen_get_usable_rect(scaling_screen)
+	
 	# Update the window
 	match scaling_mode:
 		ScalingMode.ALL_SCREENS:
@@ -86,14 +90,17 @@ func update_window() -> void:
 				final_rect.merge(DisplayServer.screen_get_usable_rect(screen))
 			size = final_rect.size
 		ScalingMode.USABLE:
-			var usable_rect: Rect2i = DisplayServer.screen_get_usable_rect(scaling_screen)
 			size = usable_rect.size
 			position = usable_rect.position
 		ScalingMode.BOTTOM:
-			pass
+			size.x = usable_rect.size.x
+			position = usable_rect.position + Vector2i(0, usable_rect.size.y - size.y)
 		ScalingMode.TOP:
-			pass
+			size.x = usable_rect.size.x
+			position = usable_rect.position
 		ScalingMode.LEFT:
-			pass
+			size.y = usable_rect.size.y
+			position = usable_rect.position
 		ScalingMode.RIGHT:
-			pass
+			size.y = usable_rect.size.y
+			position = usable_rect.position + Vector2i(usable_rect.size.x - size.x, 0)
