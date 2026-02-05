@@ -1,7 +1,31 @@
 [gd_scene format=3 uid="uid://bj6aq3r608inn"]
 
-[ext_resource type="PackedScene" uid="uid://chd0by48yee7h" path="res://lil_guys/lil_guy.tscn" id="1_wyw1f"]
+[ext_resource type="Script" uid="uid://dv8snpt4thhho" path="res://lil_guys/lil_guy.gd" id="1_wyw1f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wyw1f"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wyw1f"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wyw1f"]
 
 [node name="LilGuysWorld" type="Node2D" unique_id=2127931918]
 
-[node name="LilGuy" parent="." unique_id=1662736 instance=ExtResource("1_wyw1f")]
+[node name="LilGuy" type="RigidBody2D" parent="." unique_id=69888243]
+position = Vector2(0, -6)
+script = ExtResource("1_wyw1f")
+metadata/_custom_type_script = "uid://dv8snpt4thhho"
+
+[node name="Collider" type="CollisionShape2D" parent="LilGuy" unique_id=1745004378]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_wyw1f")
+
+[node name="Sprite" type="Sprite2D" parent="LilGuy" unique_id=1978272481]
+position = Vector2(-2.9802322e-07, -4.9999995)
+scale = Vector2(20, 20)
+texture = SubResource("PlaceholderTexture2D_wyw1f")
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1940076808]
+position = Vector2(0, 100)
+
+[node name="Collider" type="CollisionShape2D" parent="Floor" unique_id=1753775357]
+shape = SubResource("WorldBoundaryShape2D_wyw1f")
