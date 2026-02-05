@@ -7,19 +7,18 @@
 transparent_bg = true
 use_hdr_2d = true
 oversampling_override = 1.0
-unresizable = true
+title = "Lil Guys"
+position = Vector2i(0, 36)
+size = Vector2i(1080, 100)
 borderless = true
 always_on_top = true
 transparent = true
 minimize_disabled = true
 maximize_disabled = true
+content_scale_mode = 1
 script = ExtResource("1_skh64")
 module_title = "Lil Guys"
 scaling_mode = 3
 metadata/_custom_type_script = "uid://cv2stdvwek26s"
 
 [node name="LilGuysMain" parent="." unique_id=614232962 instance=ExtResource("2_f2isi")]
-offset_left = 69.0
-offset_top = 21.0
-offset_right = 69.0
-offset_bottom = 21.0

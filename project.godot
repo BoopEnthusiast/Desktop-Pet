@@ -17,7 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Desktop Pet"
 run/main_scene="uid://cst8hevm42cfb"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://walking_pet/art/icon.svg"
+config/icon="res://modules/icon.svg"
 
 [autoload]
 

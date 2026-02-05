@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://byxu5tha0pbgk"]
 
+[ext_resource type="PackedScene" uid="uid://bj6aq3r608inn" path="res://lil_guys/lil_guys_world.tscn" id="1_y7q2n"]
+
 [node name="LilGuysMain" type="Control" unique_id=614232962]
 layout_mode = 3
 anchors_preset = 15
@@ -16,3 +18,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.61960787, 1, 0.12941177)
+
+[node name="LilGuysWorld" parent="." unique_id=2127931918 instance=ExtResource("1_y7q2n")]

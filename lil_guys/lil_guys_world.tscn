@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bj6aq3r608inn"]
+
+[ext_resource type="PackedScene" uid="uid://chd0by48yee7h" path="res://lil_guys/lil_guy.tscn" id="1_wyw1f"]
+
+[node name="LilGuysWorld" type="Node2D" unique_id=2127931918]
+
+[node name="LilGuy" parent="." unique_id=1662736 instance=ExtResource("1_wyw1f")]

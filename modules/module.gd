@@ -26,7 +26,7 @@ enum ScalingMode {
 ## The list of settings you want to appear on the settings page in the main screen
 @export var module_settings: Array[ModuleSetting]
 @export_group("Scaling", "scaling_")
-## The way it changes the size of the window automatically. This assumes [member Window.unresizable] is true
+## The way it changes the size of the window automatically.
 @export var scaling_mode: ScalingMode = ScalingMode.NO_SCALING
 ## Which screen to use [member scaling_mode] if the mode uses it.[br]
 ## [br]
@@ -75,8 +75,10 @@ func _on_updated_video_config() -> void:
 ## It updates the size of the window when it could be needed.
 func update_window() -> void:
 	if _internally_changed_size:
+		_internally_changed_size = false
 		return
-	_internally_changed_size = true
+	if scaling_mode != ScalingMode.NO_SCALING:
+		_internally_changed_size = true
 	
 	var usable_rect: Rect2i 
 	if scaling_mode != ScalingMode.ALL_SCREENS:
