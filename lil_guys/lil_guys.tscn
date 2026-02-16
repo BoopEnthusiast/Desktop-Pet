@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://t1vnquvo52a4" path="res://lil_guys/lil_guys.gd" id="1_skh64"]
 [ext_resource type="PackedScene" uid="uid://byxu5tha0pbgk" path="res://lil_guys/lil_guys_main.tscn" id="2_f2isi"]
+[ext_resource type="PackedScene" uid="uid://bj6aq3r608inn" path="res://lil_guys/lil_guys_world.tscn" id="3_54yj2"]
 
 [node name="LilGuys" type="Window" unique_id=407832925]
 transparent_bg = true
@@ -22,3 +23,5 @@ scaling_mode = 3
 metadata/_custom_type_script = "uid://cv2stdvwek26s"
 
 [node name="LilGuysMain" parent="." unique_id=614232962 instance=ExtResource("2_f2isi")]
+
+[node name="LilGuysWorld" parent="." unique_id=2127931918 instance=ExtResource("3_54yj2")]
